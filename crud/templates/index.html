@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Inicial</title>
+  <title>Home - Amigos do Zé Alguém</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-  <h1>Crud Amigos do zé alguem</h1>
+  {% include 'topbar.html' %}
 
-  <ul>
-    {% for pessoa in pessoas %}
-      <li>{{pessoa.id}} - {{pessoa.nome}} <a href="{% url 'editar' pessoa.id %}">Editar</a>
-      <a href="{% url 'delete' pessoa.id%}">Deletar</a>
-      </li>
-    {% endfor %}
-  </ul>
-  
-  <form action="{% url 'salvar' %}" method="post">
-    {% csrf_token %}
-  <input type="text" name="nome">
-  <button type="submit">Salvar</button>
-  </form>
+  <div class="container mt-5 text-center">
+    <h1 class="mb-4">Bem-vindo ao Sistema Amigos do Zé Alguém</h1>
+    <p class="lead mb-4">Escolha uma das opções abaixo para gerenciar os dados:</p>
+
+    <div class="d-flex justify-content-center">
+      <a href="{% url 'lista_voluntarios' %}" class="btn btn-primary btn-lg mx-2">Lista de Voluntários</a>
+      <a href="{% url 'lista_beneficiarios' %}" class="btn btn-secondary btn-lg mx-2">Lista de Beneficiários</a>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </body>
 </html>
