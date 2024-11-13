@@ -101,10 +101,12 @@ DATABASES = {
 import os
 
 ALLOWED_HOSTS = [
-    os.environ.get('RAILWAY_STATIC_URL', '127.0.0.1'),  # '127.0.0.1' é o valor padrão se RAILWAY_STATIC_URL não estiver definido
+    os.environ.get('RAILWAY_STATIC_URL', '127.0.0.1'), 
     "127.0.0.1",
     ".vercel.app",
-    ".now.sh"
+    ".now.sh",
+    '.railway.app', 
+    'localhost'
 ]
 
 
