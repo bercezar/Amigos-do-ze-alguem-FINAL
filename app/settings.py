@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&0#8vzu@yb&0gg5x!9ot)g5*(cg0k$u_88-oxlaghs5r#gtb0p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -98,7 +98,15 @@ DATABASES = {
 # }
 
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
+import os
+
+ALLOWED_HOSTS = [
+    os.environ.get('RAILWAY_STATIC_URL', '127.0.0.1'),  # '127.0.0.1' é o valor padrão se RAILWAY_STATIC_URL não estiver definido
+    "127.0.0.1",
+    ".vercel.app",
+    ".now.sh"
+]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
