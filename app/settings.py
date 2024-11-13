@@ -74,16 +74,28 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'amigos_do_ze_back',  
-        'USER': 'admin',  
-        'PASSWORD': '1990',  
-        'HOST': 'localhost',  
-        'PORT': '5432',  
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres:lXhVUpFPitVEPkebnQjEnTurUxzcVEXu@autorack.proxy.rlwy.net:52119/railway'
+    )
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'amigos_do_ze_back',  
+#         'USER': 'admin',  
+#         'PASSWORD': 'lXhVUpFPitVEPkebnQjEnTurUxzcVEXu',  
+#         'HOST': 'postgres.railway.internal',  
+#         'PORT': '5432',
+#         'OPTIONS': {
+#             'client_encoding': 'UTF8',
+#         },  
+#     }
+# }
 
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
